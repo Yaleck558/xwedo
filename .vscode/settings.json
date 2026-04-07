@@ -1,0 +1,19 @@
+{
+  "intelephense.stubs": [
+    "apache", "bcmath", "calendar", "Core", "ctype",
+    "curl", "date", "dom", "fileinfo", "filter",
+    "gd", "hash", "iconv", "json", "mbstring",
+    "mysqli", "mysqlnd", "openssl", "pcre", "PDO",
+    "pdo_mysql", "Phar", "readline", "Reflection",
+    "session", "SimpleXML", "sodium", "SPL",
+    "standard", "tokenizer", "xml", "xmlreader",
+    "xmlwriter", "zip", "zlib"
+  ],
+  "intelephense.diagnostics.undefinedTypes": false,
+  "intelephense.diagnostics.undefinedConstants": false,
+  "json.schemaDownload.enable": false,
+  "workbench.trustedDomains": [
+    "https://raw.githubusercontent.com",
+    "https://github.com"
+  ]
+}
