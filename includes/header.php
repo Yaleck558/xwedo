@@ -446,7 +446,7 @@ nav.solid .nav-center-wrap {
 
   /* Liens du menu */
   .nav-mobile-links {
-    display: flex; flex-direction: column; gap: 0;
+    display: flex; flex-direction: column; gap: 0;margin-top: 8rem;
   }
   .nav-mobile-links a {
     display: block; padding: .9rem 0;
@@ -722,6 +722,14 @@ nav.solid .nav-center-wrap {
 </style>
 
 <?php if (!empty($pageCSS)) echo '<style>' . $pageCSS . '</style>'; ?>
+
+<!-- ── OVERRIDE MOBILE forcé ── -->
+<style>
+@media (max-width: 900px) {
+  .nav-center-wrap { display: none !important; visibility: hidden !important; }
+  nav { grid-template-columns: auto auto !important; justify-content: space-between; }
+}
+</style>
 
 </head>
 <body>

@@ -364,17 +364,21 @@ require_once 'includes/header.php';
         Présentez ce QR code à l'entrée du festival.
       </p>
 
-      <!-- QR Code généré localement — fonctionne sans internet -->
+      <!-- QR Code — URL directe Google Charts (pas de PHP intermédiaire) -->
       <div id="qr-container" style="display:flex; flex-direction:column; align-items:center; margin:1.5rem 0;">
-        <img
-          src="<?= url('api/qr.php?code=' . urlencode($reservation['code_billet']) . '&size=220') ?>"
-          alt="QR Code billet <?= e($reservation['code_billet']) ?>"
-          style="background:#fff; padding:12px; border-radius:12px; border:2px solid rgba(196,98,45,.15); width:220px; height:auto;"
-          onerror="this.outerHTML='<div style=\'padding:1.5rem;background:#FAF6EE;border-radius:12px;font-family:monospace;font-size:1.2rem;letter-spacing:.1em;color:#C4622D;border:2px dashed rgba(196,98,45,.3);\'><?= e($reservation['code_billet']) ?></div>'"
-        >
+        <div style="background:#fff; padding:12px; border-radius:12px; border:2px solid rgba(196,98,45,.15); display:inline-block;">
+          <img
+            src="https://chart.googleapis.com/chart?chs=220x220&cht=qr&chl=<?= rawurlencode($reservation['code_billet']) ?>&choe=UTF-8&chld=H|2"
+            alt="QR Code <?= e($reservation['code_billet']) ?>"
+            width="220"
+            height="220"
+            style="display:block; border-radius:6px;"
+            onerror="this.parentElement.innerHTML='<div style=\'padding:1.5rem 2rem;font-family:monospace;font-size:1.1rem;letter-spacing:.15em;color:#C4622D;border:2px dashed rgba(196,98,45,.3);border-radius:8px;text-align:center;\'><div style=\'font-size:.7rem;color:#A8937C;margin-bottom:.5rem;\'>CODE BILLET</div><?= e($reservation['code_billet']) ?></div>'"
+          >
+        </div>
       </div>
       <p style="font-size:.75rem; color:var(--text-soft); margin-bottom:1.5rem;">
-        📱 Présentez ce QR code à l'entrée du festival
+        📱 Présentez ce QR code à l'entrée du festival — ou tapez le code manuellement au scanner
       </p>
       <div class="confirm-actions">
         <a href="<?= url('profil.php?tab=reservations') ?>" class="btn-terra">
